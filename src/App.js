@@ -24,7 +24,7 @@ class App extends Component {
     // }
 
     callAPI() {
-        fetch("http://localhost:3000/users")
+        fetch("https://mymusic-backend.herokuapp.com/users")
         .then(res => res.text())
         .then(res => this.setState({ apiResponse: res }));
     }
