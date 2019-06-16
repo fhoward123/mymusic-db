@@ -21,10 +21,11 @@ class App extends Component {
             media: '',
             yearMFG: 0,
             yearReleased: 0,
-            barcode: 0,
+            barcode: '',
             songs: []
         }
-        this.fetchAlbums = this.fetchAlbums.bind(this)
+        this.fetchAlbums = this.fetchAlbums.bind(this);
+        this.deleteAlbum = this.deleteAlbum.bind(this);
     }
 
     fetchAlbums() {
@@ -35,6 +36,20 @@ class App extends Component {
             console.log('ResponseData: ', response.data);
             console.log('ResponseStatus: ', response.status);
             this.setState({ albumList: response.data })
+        })
+        .catch( response => {
+            console.log('catch response.message: ', response.message);
+        })
+    }
+
+    deleteAlbum() {
+        console.log('Inside deleteAlbum');
+        // axios.get("https://mymusic-backend.herokuapp.com/collection/albums");
+        axios.delete('http://localhost:3000/collection/albums/')
+        .then( response => {
+            console.log('ResponseData: ', response.data);
+            console.log('ResponseStatus: ', response.status);
+            this.setState({ albumDeleted: response.data })
         })
         .catch( response => {
             console.log('catch response.message: ', response.message);
