@@ -33,8 +33,8 @@ body {
     width: 25em;
     margin: 0 auto;
     border-radius: 5px;
-    background: white;
-    box-shadow: 1px 1px #ddd;
+    /* background: white; */
+    /* box-shadow: 1px 1px #ddd; */
     background-color: #e8c7e3;
     text-align: center;
 }
@@ -111,6 +111,18 @@ input[type="text"]:focus {
     outline: 0;
     border: 1px solid #888;
 }
+.button {
+    border-radius: 0.5em;
+}
+.cancel {
+    background-color: orange;
+}
+.submit {
+    background-color: dodgerblue;
+}
+.add {
+    background-color: lightgreen;
+}
 .submit-button {
     width: 6%;
     padding: 5px;
@@ -133,6 +145,23 @@ input[type="text"]:focus {
 /* ==========================
      ITEM LIST & ITEMS
 ========================== */
+.modal {
+    width: 405px;
+    margin: auto;
+    background-color: #e8c7e3;
+    /* border-radius: 0.5em; */
+    /* border: 1px solid #e8ffe3; */
+    padding: 0.1em 0em 0.5em 1em;
+}
+.center {
+    text-align: center;
+}
+.purple {
+    color: #871F78;
+}
+.album-container {
+    /* overflow: auto; */
+}
 .album-list {
     height: 660px;
     width: 440px;

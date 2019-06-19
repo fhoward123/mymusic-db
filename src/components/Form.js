@@ -1,10 +1,13 @@
 //Remember, for components we always need React and the Component class
 import React, { Component } from 'react'
-import Modal from 'react-foundation-modal';
+// import Modal from 'react-foundation-modal';
+import Modal from 'react-bootstrap/Modal'
+import { ButtonToolbar} from 'react-bootstrap';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import { Button} from 'react-bootstrap';
+
+require("react-bootstrap/ModalHeader")
 const axios = require('axios');
-const overlayStyle = {
-    'backgroundColor': 'rgba(33,10,10,.45)'
-};
 
 class Form extends Component {
     constructor(props) {
@@ -52,7 +55,7 @@ class Form extends Component {
             <div className="container">
                 <p>
                     <button
-                        className="button"
+                        className="button add"
                         onClick={() => {
                             this.props.showPopup(true)
                             this.props.clearForm()
@@ -62,12 +65,11 @@ class Form extends Component {
                     </button>
                 </p>
                 <Modal
-                    open={this.props.modalIsOpen}
-                    closeModal={this.props.showPopup}
-                    isModal={true}
-                    size="full"
-                    overlayStyle={overlayStyle} >
-                    <p>Fill in the fields and click 'Submit'</p>
+                    show={this.props.modalIsOpen}
+                    onHide={this.props.showPopup}
+                    dialogClassName="modal"
+                    size="sm">
+                    <p className="center purple">Fill in the fields and click 'Submit'</p>
                     <form onSubmit={this.handleSubmit}>
                         <input type='text'
                            id='submitter'
@@ -148,9 +150,21 @@ class Form extends Component {
                            placeholder="year manufactured"
                         />
                         <button type="submit"
-                            className="button">Submit
+                            className="button submit">Submit
                         </button>
                     </form>
+                    <Modal.Footer>
+                        <ButtonToolbar><ButtonGroup>
+                        <Button variant="warning"
+                            className="button cancel"
+                            onClick={() => {
+                                this.props.showPopup(false)
+                                this.props.clearForm()
+                            }}>
+                            Cancel
+                        </Button>
+                        </ButtonGroup></ButtonToolbar>
+                    </Modal.Footer>
                 </Modal>
             </div>
         )

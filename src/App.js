@@ -1,12 +1,7 @@
 import React, {Component} from 'react';
-// import ReactDOM from 'react-dom';
-// import Modal from 'react-foundation-modal';
 
 /// components ///
 import Header from './components/Header';
-// import Nav from './components/Nav';
-// import Form from './components/Form';
-// import AlbumList from './components/AlbumList';
 
 const axios = require('axios');
 
@@ -173,9 +168,9 @@ class App extends Component {
     }
 
     goToTop() {
-        window.scrollTo(0, 0)
-        document.body.scrollTop = 0
-        document.documentElement.scrollTop = 0
+        // window.scrollTo(0, 0)
+        // document.body.scrollTop = 0
+        // document.documentElement.scrollTop = 0
     }
 
     componentDidMount() {

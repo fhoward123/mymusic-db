@@ -37,6 +37,7 @@ class Header extends Component {
                 <li className="no-bullet bold cursor bot-bord" onClick={() => {this.props.getAlbums()}}>
                     View Albums in Collection ({this.props.albumCnt})
                 </li>
+                <div className="album-container">
                 {this.props.albumList
                     ?
                     this.props.albumList.map((album) => {
@@ -68,6 +69,7 @@ class Header extends Component {
                     })
                     :  ''
                 }
+                </div>
             </div>
         )
     }
