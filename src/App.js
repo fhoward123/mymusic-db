@@ -25,7 +25,7 @@ class App extends Component {
             yearReleased: '',
             barcode: '',
             songs: [],
-            albumCache: [],
+            albumArray: [],
         }
         this.getAlbums = this.getAlbums.bind(this);
         this.deleteAlbum = this.deleteAlbum.bind(this);
@@ -36,7 +36,6 @@ class App extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.setNoEdit = this.setNoEdit.bind(this);
         this.clearForm = this.clearForm.bind(this);
-        this.goToTop = this.goToTop.bind(this);
         this.updateArray = this.updateArray.bind(this);
         this.removeFromArray = this.removeFromArray.bind(this);
     }
@@ -55,8 +54,8 @@ class App extends Component {
         console.log('Inside getAlbumById (albumId): ', albumId)
         // axios.get('https://mymusic-backend.herokuapp.com/collection/albums/' + albumId)
         axios.get('http://localhost:3000/collection/albums/' + albumId)
-        .then(res => {
-            const album = res.data;
+        .then(response => {
+            const album = response.data;
             console.log(album);
             this.setState({
                 submitter: album.submitter,
@@ -88,9 +87,9 @@ class App extends Component {
             }
         })
         .then( response => {
-            console.log('ResponseData: ', response.data);
-            console.log('ResponseStatus: ', response.status);
-            // this.updateArray(albumCache)
+            console.log('addAlbum:ResponseData: ', response.data);
+            console.log('addAlbum:ResponseStatus: ', response.status);
+            this.updateArray(response.data)
         })
         .catch( response => {
             console.log('catch response.message: ', response.message);
@@ -98,11 +97,14 @@ class App extends Component {
     }
 
     // Remove album from array
-    removeFromArray(array, arrayIndex){
+    removeFromArray(arrayIndex) {
+        console.log('Inside removeFromArray (arrayIndex): ', arrayIndex);
         this.setState(prevState => {
-            prevState[array].splice(arrayIndex, 1)
+            console.log('prevState: ', prevState);
+            prevState.albumArray.splice(arrayIndex, 1);
             return {
-                [array]: prevState[array]
+                albumArray: prevState.albumArray,
+                albumCount: prevState.albumArray.length
             }
         })
     }
@@ -112,11 +114,12 @@ class App extends Component {
         console.log('Inside App:updateArray (array): ', array)
         // prevState is a copy of the currentState
         this.setState( prevState => {
-            prevState[array].push(album)
+            prevState.albumArray.push(album)
             console.log('Inside App:updateArray (prevState): ', prevState)
             // We are returning an object, thus the return {}
             return {
-                [array]: prevState[array]
+                albumArray: prevState.albumArray,
+                albumCount: prevState.albumArray.length
             }
         })
     }
@@ -137,12 +140,25 @@ class App extends Component {
         // axios.get('https://mymusic-backend.herokuapp.com/collection/')
         axios.get('http://localhost:3000/collection/')
         .then( response => {
-            console.log('ResponseData: ', response.data);
-            console.log('ResponseStatus: ', response.status);
+            console.log('albumIndex:ResponseData: ', response.data);
+            console.log('albumIndex:ResponseStatus: ', response.status);
             this.setState({ albumCount: response.data.album_count })
         })
         .catch( response => {
             console.log('catch response.message: ', response.message);
+        })
+    }
+
+    buildAlbumArray(albums) {
+        console.log('Inside buildAlbumArray');
+        const albumArray = [];
+        albums.forEach((album) => {
+            albumArray.push(album);
+        })
+        console.log('albumArray: ', albumArray)
+        this.setState({
+            albumArray: albumArray,
+            albumCount: albumArray.length
         })
     }
 
@@ -153,21 +169,23 @@ class App extends Component {
         .then( response => {
             console.log('ResponseData: ', response.data);
             console.log('ResponseStatus: ', response.status);
-            this.setState({ albumList: response.data })
+            this.setState({ albumArray: response.data });
+            this.buildAlbumArray(response.data);
         })
         .catch( response => {
             console.log('catch response.message: ', response.message);
         })
     }
 
-    deleteAlbum(id) {
+    deleteAlbum(id, arrayIndex) {
         console.log('Inside deleteAlbum');
         // axios.delete('https://mymusic-backend.herokuapp.com/collection/albums' + id)
         axios.delete('http://localhost:3000/collection/albums/' + id)
         .then( response => {
             console.log('ResponseData: ', response.data);
             console.log('ResponseStatus: ', response.status);
-            this.setState({ albumDeleted: response.data })
+            this.setState({ albumDeleted: response.data });
+            this.removeFromArray(arrayIndex);
         })
         .catch( response => {
             console.log('catch response.message: ', response.message);
@@ -195,12 +213,6 @@ class App extends Component {
         })
     }
 
-    goToTop() {
-        // window.scrollTo(0, 0)
-        // document.body.scrollTop = 0
-        // document.documentElement.scrollTop = 0
-    }
-
     componentDidMount() {
         this.albumIndex();
     }
@@ -211,31 +223,19 @@ class App extends Component {
                 <AlbumList
                     albumCnt = {this.state.albumCount}
                     getAlbums = {this.getAlbums}
-                    albumList = {this.state.albumList}
                     showPopup = {this.showPopup}
                     modalIsOpen = {this.state.modalIsOpen}
                     addAlbum = {this.addAlbum}
                     deleteAlbum = {this.deleteAlbum}
                     getAlbumById = {this.getAlbumById}
-                    submitter = {this.state.submitter}
-                    title = {this.state.title}
-                    artist = {this.state.artist}
-                    imageURL = {this.state.imageURL}
-                    genre = {this.state.genre}
-                    label = {this.state.label}
-                    trackCnt = {this.state.trackCnt}
-                    runtime = {this.state.runtime}
-                    media = {this.state.media}
-                    yearMFG = {this.state.yearMFG}
-                    countryMFG = {this.state.countryMFG}
-                    yearReleased = {this.state.yearReleased}
-                    barcode = {this.state.barcode}
+                    album = {this.state}
                     handleChange = {this.handleChange}
                     albumID = {this.state.id}
                     editing = {this.state.editing}
                     setNoEdit = {this.setNoEdit}
                     clearForm = {this.clearForm}
-                    goToTop = {this.goToTop}
+                    albums = {this.state.albumArray}
+                    updateArray = {this.updateArray}
                 />
             </div>
         );

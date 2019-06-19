@@ -38,7 +38,7 @@ class Albums extends Component {
                    <div>
                        <i
                           className="cursor delete far fa-trash-alt"
-                          onClick={ () => { this.props.deleteAlbum(this.props.album._id, this.props.arrayIndex, this.props.currentArray) }}
+                          onClick={ () => { this.props.deleteAlbum(this.props.album._id, this.props.arrayIndex) }}
                        ></i>
                    </div>
                </div>

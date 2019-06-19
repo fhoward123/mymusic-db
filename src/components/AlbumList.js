@@ -13,35 +13,36 @@ class AlbumList extends Component {
                     modalIsOpen = {this.props.modalIsOpen}
                     addAlbum = {this.props.addAlbum}
                     getAlbumById = {this.props.getAlbumById}
-                    submitter = {this.props.submitter}
-                    title = {this.props.title}
-                    artist = {this.props.artist}
-                    imageURL = {this.props.imageURL}
-                    genre = {this.props.genre}
-                    label = {this.props.label}
-                    trackCnt = {this.props.trackCnt}
-                    runtime = {this.props.runtime}
-                    media = {this.props.media}
-                    yearMFG = {this.props.yearMFG}
-                    countryMFG = {this.props.countryMFG}
-                    yearReleased = {this.props.yearReleased}
-                    barcode = {this.props.barcode}
+                    submitter = {this.props.album.submitter}
+                    title = {this.props.album.title}
+                    artist = {this.props.album.artist}
+                    imageURL = {this.props.album.imageURL}
+                    genre = {this.props.album.genre}
+                    label = {this.props.album.label}
+                    trackCnt = {this.props.album.trackCnt}
+                    runtime = {this.props.album.runtime}
+                    media = {this.props.album.media}
+                    yearMFG = {this.props.album.yearMFG}
+                    countryMFG = {this.props.album.countryMFG}
+                    yearReleased = {this.props.album.yearReleased}
+                    barcode = {this.props.album.barcode}
                     handleChange = {this.props.handleChange}
                     albumID = {this.props.albumID}
                     editing = {this.props.editing}
                     setNoEdit = {this.props.setNoEdit}
                     clearForm = {this.props.clearForm}
-                    goToTop = {this.props.goToTop}
+                    updateArray = {this.props.updateArray}
                 />
                 <h2 className="mainTitle">The Collection</h2>
                 <li className="no-bullet bold cursor bot-bord" onClick={() => {this.props.getAlbums()}}>
                     View Albums in Collection ({this.props.albumCnt})
                 </li>
                 <div className="album-container">
-                {this.props.albumList
+                {this.props.albums
                     ?
-                    this.props.albumList.map((album, index) => {
+                    this.props.albums.map((album, index) => {
                         console.log('album: ', album);
+                        console.log('index: ', index);
                         return(
                             <div className="left">
                                 <Albums

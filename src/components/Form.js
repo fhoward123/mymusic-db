@@ -24,8 +24,9 @@ class Form extends Component {
             }
         })
         .then( response => {
-            console.log('ResponseData: ', response.data);
-            console.log('ResponseStatus: ', response.status);
+            console.log('updateAlbum:ResponseData: ', response.data);
+            console.log('updateAlbum:ResponseStatus: ', response.status);
+            this.props.updateArray(response.data)
         })
         .catch( response => {
             console.log('catch response.message: ', response.message);
@@ -58,7 +59,6 @@ class Form extends Component {
                         onClick={() => {
                             this.props.showPopup(true)
                             this.props.clearForm()
-                            this.props.goToTop()
                         }}>
                         Add Album
                     </button>
