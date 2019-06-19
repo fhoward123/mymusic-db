@@ -151,7 +151,6 @@ input[type="text"]:focus {
     border-bottom: 2px solid purple;
     font-family: serif;
     font-size: 16px;
-    /* text-transform: uppercase; */
     letter-spacing: .5px;
 }
 .grocery-item {

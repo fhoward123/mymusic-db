@@ -55,7 +55,8 @@ class App extends Component {
 
     getAlbumById(albumId) {
         console.log('Inside getAlbumById (albumId): ', albumId)
-        axios.get('http://localhost:3000/collection/albums/' + albumId)
+        axios.get('https://mymusic-backend.herokuapp.com/collection/albums/' + albumId)
+        // axios.get('http://localhost:3000/collection/albums/' + albumId)
         .then(res => {
             const album = res.data;
             console.log(album);
@@ -81,8 +82,8 @@ class App extends Component {
 
     addAlbum(album) {
         console.log('Inside addAlbum (album): ', album)
-        // axios.post('https://mymusic-backend.herokuapp.com/collection/albums/', album, {
-        axios.post('http://localhost:3000/collection/albums/', album, {
+        axios.post('https://mymusic-backend.herokuapp.com/collection/albums/', album, {
+        // axios.post('http://localhost:3000/collection/albums/', album, {
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
@@ -110,8 +111,8 @@ class App extends Component {
 
     albumIndex () {
         console.log('Inside albumIndex');
-        // axios.get("https://mymusic-backend.herokuapp.com/collection/");
-        axios.get('http://localhost:3000/collection/')
+        axios.get('https://mymusic-backend.herokuapp.com/collection/')
+        // axios.get('http://localhost:3000/collection/')
         .then( response => {
             console.log('ResponseData: ', response.data);
             console.log('ResponseStatus: ', response.status);
@@ -124,8 +125,8 @@ class App extends Component {
 
     getAlbums() {
         console.log('Inside getAlbums');
-        // axios.get("https://mymusic-backend.herokuapp.com/collection/albums");
-        axios.get('http://localhost:3000/collection/albums/')
+        axios.get('https://mymusic-backend.herokuapp.com/collection/albums')
+        // axios.get('http://localhost:3000/collection/albums/')
         .then( response => {
             console.log('ResponseData: ', response.data);
             console.log('ResponseStatus: ', response.status);
@@ -138,8 +139,8 @@ class App extends Component {
 
     deleteAlbum(id) {
         console.log('Inside deleteAlbum');
-        // axios.delete('https://mymusic-backend.herokuapp.com/collection/albums' + id);
-        axios.delete('http://localhost:3000/collection/albums/' + id)
+        axios.delete('https://mymusic-backend.herokuapp.com/collection/albums' + id)
+        // axios.delete('http://localhost:3000/collection/albums/' + id)
         .then( response => {
             console.log('ResponseData: ', response.data);
             console.log('ResponseStatus: ', response.status);
