@@ -12,9 +12,26 @@ class Header extends Component {
                     showPopup = {this.props.showPopup}
                     modalIsOpen = {this.props.modalIsOpen}
                     addAlbum = {this.props.addAlbum}
+                    getAlbumById = {this.props.getAlbumById}
+                    submitter = {this.props.submitter}
+                    title = {this.props.title}
+                    artist = {this.props.artist}
+                    imageURL = {this.props.imageURL}
+                    genre = {this.props.genre}
+                    label = {this.props.label}
+                    trackCnt = {this.props.trackCnt}
+                    runtime = {this.props.runtime}
+                    media = {this.props.media}
+                    yearMFG = {this.props.yearMFG}
+                    countryMFG = {this.props.countryMFG}
+                    yearReleased = {this.props.yearReleased}
+                    barcode = {this.props.barcode}
+                    handleChange = {this.props.handleChange}
+                    albumID = {this.props.albumID}
+                    editing = {this.props.editing}
                 />
                 <h2 className="mainTitle">The Collection</h2>
-                <li className="no-bullet bold cursor" onClick={() => {this.props.getAlbums()}}>
+                <li className="no-bullet bold cursor bot-bord" onClick={() => {this.props.getAlbums()}}>
                     View Albums in Collection ({this.props.albumCnt})
                 </li>
                 {this.props.albumList
@@ -26,7 +43,7 @@ class Header extends Component {
                                 <Albums
                                    id = {album._id}
                                    submitter = {album.submitter}
-                                   image = {album.imageURL}
+                                   imageURL = {album.imageURL}
                                    title = {album.title}
                                    artist = {album.artist}
                                    trackCnt = {album.trackCnt}
@@ -40,6 +57,8 @@ class Header extends Component {
                                    barcode = {album.barcode}
                                    deleteAlbum = {this.props.deleteAlbum}
                                    editAlbum = {this.props.editAlbum}
+                                   showPopup = {this.props.showPopup}
+                                   getAlbumById = {this.props.getAlbumById}
                                 />
                             </div>
                         );

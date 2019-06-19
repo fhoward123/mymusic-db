@@ -15,10 +15,11 @@ class App extends Component {
         super(props)
         this.state = {
             modalIsOpen: false,
+            editing: false,
             submitter: '',
             title: '',
             artist: '',
-            image: '',
+            imageURL: '',
             genre: '',
             label: '',
             trackCnt: 0,
@@ -37,31 +38,45 @@ class App extends Component {
         this.albumIndex = this.albumIndex.bind(this);
         this.showPopup = this.showPopup.bind(this);
         this.addAlbum = this.addAlbum.bind(this);
-        this.editAlbum = this.editAlbum.bind(this);
+        // this.editAlbum = this.editAlbum.bind(this);
+        this.getAlbumById = this.getAlbumById.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange = (event) => {
+        this.setState({[event.target.id]: event.target.value})
+    }
+
+    getAlbumById(albumId) {
+        console.log('Inside getAlbumById (albumId): ', albumId)
+        axios.get('http://localhost:3000/collection/albums/' + albumId)
+        .then(res => {
+            const album = res.data;
+            console.log(album);
+            this.setState({
+                submitter: album.submitter,
+                title: album.title,
+                artist: album.artist,
+                imageURL: album.imageURL,
+                genre: album.genre,
+                label: album.label,
+                trackCnt: album.trackCnt,
+                runtime: album.runtime,
+                media: album.media,
+                yearMFG: album.yearMFG,
+                countryMFG: album.countryMFG,
+                yearReleased: album.yearReleased,
+                barcode: album.barcode,
+                id: album._id,
+                editing: true
+            });
+        });
     }
 
     addAlbum(album) {
         console.log('Inside addAlbum (album): ', album)
         // axios.post('https://mymusic-backend.herokuapp.com/collection/albums/', album, {
         axios.post('http://localhost:3000/collection/albums/', album, {
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        })
-        .then( response => {
-            console.log('ResponseData: ', response.data);
-            console.log('ResponseStatus: ', response.status);
-        })
-        .catch( response => {
-            console.log('catch response.message: ', response.message);
-        })
-    }
-
-    editAlbum(album) {
-        console.log('Inside editAlbum (album): ', album)
-        // axios.put('https://mymusic-backend.herokuapp.com/collection/albums/' + id, album, {
-        axios.put('http://localhost:3000/collection/albums/' + album.id, album, {
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
@@ -141,6 +156,23 @@ class App extends Component {
                     addAlbum = {this.addAlbum}
                     deleteAlbum = {this.deleteAlbum}
                     editAlbum = {this.editAlbum}
+                    getAlbumById = {this.getAlbumById}
+                    submitter = {this.state.submitter}
+                    title = {this.state.title}
+                    artist = {this.state.artist}
+                    imageURL = {this.state.imageURL}
+                    genre = {this.state.genre}
+                    label = {this.state.label}
+                    trackCnt = {this.state.trackCnt}
+                    runtime = {this.state.runtime}
+                    media = {this.state.media}
+                    yearMFG = {this.state.yearMFG}
+                    countryMFG = {this.state.countryMFG}
+                    yearReleased = {this.state.yearReleased}
+                    barcode = {this.state.barcode}
+                    handleChange = {this.handleChange}
+                    albumID = {this.state.id}
+                    editing = {this.state.editing}
                 />
             </div>
         );

@@ -86,7 +86,7 @@ body {
     font-weight: 800;
 }
 span.bold {
-    width: 180px;
+    width: 90px;
     float: left;
 }
 span.current.bold {
@@ -135,10 +135,14 @@ input[type="text"]:focus {
 ========================== */
 .album-list {
     height: 660px;
-    width: 520px;
+    width: 440px;
     overflow: auto;
     padding: 10px;
     box-sizing: border-box;
+}
+.bot-bord {
+    padding: 10px;
+    border-bottom: 2px solid purple;
 }
 .items {
     display: flex;
@@ -147,7 +151,7 @@ input[type="text"]:focus {
     border-bottom: 2px solid purple;
     font-family: serif;
     font-size: 16px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     letter-spacing: .5px;
 }
 .grocery-item {
