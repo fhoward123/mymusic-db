@@ -1,6 +1,5 @@
 //Remember, for components we always need React and the Component class
 import React, { Component } from 'react'
-// import Modal from 'react-foundation-modal';
 import Modal from 'react-bootstrap/Modal'
 import { ButtonToolbar} from 'react-bootstrap';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
@@ -131,19 +130,19 @@ class Form extends Component {
                            onChange={this.props.handleChange}
                            placeholder="barcode"
                         />
-                        <input type='number'
+                        <input type='text'
                            id='trackCnt'
                            value={this.props.trackCnt}
                            onChange={this.props.handleChange}
                            placeholder="number of tracks"
                         />
-                        <input type='number'
+                        <input type='text'
                            id='yearReleased'
                            value={this.props.yearReleased}
                            onChange={this.props.handleChange}
                            placeholder="year released"
                         />
-                        <input type='number'
+                        <input type='text'
                            id='yearMFG'
                            value={this.props.yearMFG}
                            onChange={this.props.handleChange}

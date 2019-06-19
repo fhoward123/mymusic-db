@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 /// components ///
-import Header from './components/Header';
+import AlbumList from './components/AlbumList';
 
 const axios = require('axios');
 
@@ -17,14 +17,15 @@ class App extends Component {
             imageURL: '',
             genre: '',
             label: '',
-            trackCnt: 0,
+            trackCnt: '',
             runtime: '',
             media: '',
-            yearMFG: 0,
+            yearMFG: '',
             countryMFG: '',
-            yearReleased: 0,
+            yearReleased: '',
             barcode: '',
-            songs: []
+            songs: [],
+            albumCache: [],
         }
         this.getAlbums = this.getAlbums.bind(this);
         this.deleteAlbum = this.deleteAlbum.bind(this);
@@ -36,6 +37,8 @@ class App extends Component {
         this.setNoEdit = this.setNoEdit.bind(this);
         this.clearForm = this.clearForm.bind(this);
         this.goToTop = this.goToTop.bind(this);
+        this.updateArray = this.updateArray.bind(this);
+        this.removeFromArray = this.removeFromArray.bind(this);
     }
 
     setNoEdit() {
@@ -87,9 +90,34 @@ class App extends Component {
         .then( response => {
             console.log('ResponseData: ', response.data);
             console.log('ResponseStatus: ', response.status);
+            // this.updateArray(albumCache)
         })
         .catch( response => {
             console.log('catch response.message: ', response.message);
+        })
+    }
+
+    // Remove album from array
+    removeFromArray(array, arrayIndex){
+        this.setState(prevState => {
+            prevState[array].splice(arrayIndex, 1)
+            return {
+                [array]: prevState[array]
+            }
+        })
+    }
+
+    updateArray(album, array) {
+        console.log('Inside App:updateArray (album): ', album)
+        console.log('Inside App:updateArray (array): ', array)
+        // prevState is a copy of the currentState
+        this.setState( prevState => {
+            prevState[array].push(album)
+            console.log('Inside App:updateArray (prevState): ', prevState)
+            // We are returning an object, thus the return {}
+            return {
+                [array]: prevState[array]
+            }
         })
     }
 
@@ -156,12 +184,12 @@ class App extends Component {
             imageURL: '',
             genre: '',
             label: '',
-            trackCnt: 0,
+            trackCnt: '',
             runtime: '',
             media: '',
-            yearMFG: 0,
+            yearMFG: '',
             countryMFG: '',
-            yearReleased: 0,
+            yearReleased: '',
             barcode: '',
             songs: []
         })
@@ -180,7 +208,7 @@ class App extends Component {
     render() {
         return(
             <div className="main-container">
-                <Header
+                <AlbumList
                     albumCnt = {this.state.albumCount}
                     getAlbums = {this.getAlbums}
                     albumList = {this.state.albumList}
