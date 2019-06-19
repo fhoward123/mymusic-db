@@ -29,6 +29,9 @@ class Header extends Component {
                     handleChange = {this.props.handleChange}
                     albumID = {this.props.albumID}
                     editing = {this.props.editing}
+                    setNoEdit = {this.props.setNoEdit}
+                    clearForm = {this.props.clearForm}
+                    goToTop = {this.props.goToTop}
                 />
                 <h2 className="mainTitle">The Collection</h2>
                 <li className="no-bullet bold cursor bot-bord" onClick={() => {this.props.getAlbums()}}>
@@ -56,7 +59,7 @@ class Header extends Component {
                                    countryMFG = {album.countryMFG}
                                    barcode = {album.barcode}
                                    deleteAlbum = {this.props.deleteAlbum}
-                                   editAlbum = {this.props.editAlbum}
+                                   updateAlbum = {this.props.updateAlbum}
                                    showPopup = {this.props.showPopup}
                                    getAlbumById = {this.props.getAlbumById}
                                 />

@@ -31,16 +31,22 @@ class App extends Component {
             barcode: '',
             songs: []
         }
-
-        // this.componentDidMount = this.componentDidMount.bind(this)
         this.getAlbums = this.getAlbums.bind(this);
         this.deleteAlbum = this.deleteAlbum.bind(this);
         this.albumIndex = this.albumIndex.bind(this);
         this.showPopup = this.showPopup.bind(this);
         this.addAlbum = this.addAlbum.bind(this);
-        // this.editAlbum = this.editAlbum.bind(this);
         this.getAlbumById = this.getAlbumById.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.setNoEdit = this.setNoEdit.bind(this);
+        this.clearForm = this.clearForm.bind(this);
+        this.goToTop = this.goToTop.bind(this);
+    }
+
+    setNoEdit() {
+        this.setState({
+            editing: false
+        });
     }
 
     handleChange = (event) => {
@@ -93,6 +99,10 @@ class App extends Component {
 
     showPopup = (status) => {
         console.log('Inside showPopup (status): ', status);
+        console.log('editing: ', this.state.editing)
+        if ( ! this.state.editing ) {
+            this.clearForm()
+        }
         this.setState({
             modalIsOpen: status
         });
@@ -140,6 +150,33 @@ class App extends Component {
         })
     }
 
+    clearForm = () => {
+        console.log('Inside clearForm')
+        this.setState({
+            editing: false,
+            submitter: '',
+            title: '',
+            artist: '',
+            imageURL: '',
+            genre: '',
+            label: '',
+            trackCnt: 0,
+            runtime: '',
+            media: '',
+            yearMFG: 0,
+            countryMFG: '',
+            yearReleased: 0,
+            barcode: '',
+            songs: []
+        })
+    }
+
+    goToTop() {
+        window.scrollTo(0, 0)
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
+    }
+
     componentDidMount() {
         this.albumIndex();
     }
@@ -155,7 +192,6 @@ class App extends Component {
                     modalIsOpen = {this.state.modalIsOpen}
                     addAlbum = {this.addAlbum}
                     deleteAlbum = {this.deleteAlbum}
-                    editAlbum = {this.editAlbum}
                     getAlbumById = {this.getAlbumById}
                     submitter = {this.state.submitter}
                     title = {this.state.title}
@@ -173,6 +209,9 @@ class App extends Component {
                     handleChange = {this.handleChange}
                     albumID = {this.state.id}
                     editing = {this.state.editing}
+                    setNoEdit = {this.setNoEdit}
+                    clearForm = {this.clearForm}
+                    goToTop = {this.goToTop}
                 />
             </div>
         );

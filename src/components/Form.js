@@ -12,9 +12,9 @@ class Form extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    editAlbum(album) {
-        console.log('Inside editAlbum (album): ', album)
-        // axios.put('https://mymusic-backend.herokuapp.com/collection/albums/' + id, album, {
+    updateAlbum(album) {
+        console.log('Inside updateAlbum (album): ', album)
+        // axios.put('https://mymusic-backend.herokuapp.com/collection/albums/' + album.albumID, album, {
         axios.put('http://localhost:3000/collection/albums/' + album.albumID, album, {
             headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -35,12 +35,14 @@ class Form extends Component {
         event.preventDefault()
 
         if (this.props.editing) {
-            this.editAlbum(this.props)
+            this.updateAlbum(this.props)
         }
         else {
             this.props.addAlbum(this.props)
         }
         this.props.showPopup(false)
+        this.props.setNoEdit()
+        this.props.clearForm()
     }
 
     render() {
@@ -51,7 +53,11 @@ class Form extends Component {
                 <p>
                     <button
                         className="button"
-                        onClick={() => this.props.showPopup(true)}>
+                        onClick={() => {
+                            this.props.showPopup(true)
+                            this.props.clearForm()
+                            this.props.goToTop()
+                        }}>
                         Add Album
                     </button>
                 </p>
