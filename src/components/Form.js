@@ -1,9 +1,6 @@
 //Remember, for components we always need React and the Component class
 import React, { Component } from 'react'
 import Modal from 'react-bootstrap/Modal'
-import { ButtonToolbar} from 'react-bootstrap';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import { Button} from 'react-bootstrap';
 
 require("react-bootstrap/ModalHeader")
 const axios = require('axios');
@@ -149,22 +146,20 @@ class Form extends Component {
                            onChange={this.props.handleChange}
                            placeholder="year manufactured"
                         />
-                        <button type="submit"
-                            className="button submit">Submit
-                        </button>
+                        <div className="btn-wrapper">
+                            <button type="submit"
+                                className="button submit">Submit
+                            </button>
+                            <button type="button"
+                                className="button cancel"
+                                onClick={() => {
+                                    this.props.showPopup(false)
+                                    this.props.clearForm()
+                                }}>
+                                Cancel
+                            </button>
+                        </div>
                     </form>
-                    <Modal.Footer>
-                        <ButtonToolbar><ButtonGroup>
-                        <Button variant="warning"
-                            className="button cancel"
-                            onClick={() => {
-                                this.props.showPopup(false)
-                                this.props.clearForm()
-                            }}>
-                            Cancel
-                        </Button>
-                        </ButtonGroup></ButtonToolbar>
-                    </Modal.Footer>
                 </Modal>
             </div>
         )

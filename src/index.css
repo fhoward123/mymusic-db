@@ -79,8 +79,36 @@ body {
 /* ==========================
        FORM
 ========================== */
-.form {
- margin-bottom: 10px;
+.modal {
+    width: 420px;
+    margin: auto;
+    background-color: #e8c7e3;
+    /* background-color: dodgerblue; */
+    /* border-radius: 0.5em; */
+    /* border: 1px solid #e8ffe3; */
+    padding: 0.1em 0em 0.5em 1em;
+}
+form {
+    margin-bottom: 10px;
+    width: 340px;
+}
+.modal-content {
+    width: 310px;
+    /* background-color: pink; */
+    padding-left: 30px;
+}
+body > div.fade.modal.show > div {
+    width:390px;
+    padding: 0px;
+    /* background-color: lightgreen; */
+}
+.btn-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 1em;
+    /* background-color: yellow; */
+    width: 310px;
 }
 .bold {
     font-weight: 800;
@@ -105,7 +133,6 @@ input[type="text"] {
     box-sizing: border-box;
     border-radius: 3px;
     border: 1px solid #ccc;
-    margin-right: 5px;
 }
 input[type="text"]:focus {
     outline: 0;
@@ -145,14 +172,6 @@ input[type="text"]:focus {
 /* ==========================
      ITEM LIST & ITEMS
 ========================== */
-.modal {
-    width: 405px;
-    margin: auto;
-    background-color: #e8c7e3;
-    /* border-radius: 0.5em; */
-    /* border: 1px solid #e8ffe3; */
-    padding: 0.1em 0em 0.5em 1em;
-}
 .thumb {
     height: 220px;
     width: 220px;
@@ -193,6 +212,7 @@ h4 > span {
     color: navy;
     font-family: 'Artifika', serif;
 }
+
 .item-actions i {
     margin: 0px 3px;
 }
