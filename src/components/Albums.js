@@ -24,7 +24,7 @@ class Albums extends Component {
                    <li><span className="bold">Media: </span><span className="values"><b>{this.props.album.media ? this.props.album.media : "-"}</b></span></li>
                    <li><span className="bold">Mfg Year: </span><span className="values"><b>{this.props.album.yearMFG ? this.props.album.yearMFG : "-"}</b></span></li>
                    <li><span className="bold">Origin: </span><span className="values"><b>{this.props.album.countryMFG ? this.props.album.countryMFG : "-"}</b></span></li>
-                   <li><span className="bold">barcode: </span><span className="values"><b>{this.props.album.barcode ? this.props.album.barcode : "-"}</b></span></li>
+                   <li><span className="bold">Barcode: </span><span className="values"><b>{this.props.album.barcode ? this.props.album.barcode : "-"}</b></span></li>
                </ul>
                <div>
                    <br/>

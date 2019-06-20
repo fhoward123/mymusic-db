@@ -53,7 +53,7 @@ class Form extends Component {
             <div className="container">
                 <p>
                     <button
-                        className="button add"
+                        className="add-button"
                         onClick={() => {
                             this.props.showPopup(true)
                             this.props.clearForm()
@@ -67,7 +67,7 @@ class Form extends Component {
                     dialogClassName="modal"
                     size="sm">
                     <p className="center purple">Fill in the fields and click 'Submit'</p>
-                    <form onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.handleSubmit} autocomplete="off">
                         <input type='text'
                            id='submitter'
                            value={this.props.submitter}
@@ -148,10 +148,10 @@ class Form extends Component {
                         />
                         <div className="btn-wrapper">
                             <button type="submit"
-                                className="button submit">Submit
+                                className="submit-button">Submit
                             </button>
                             <button type="button"
-                                className="button cancel"
+                                className="cancel-button"
                                 onClick={() => {
                                     this.props.showPopup(false)
                                     this.props.clearForm()
