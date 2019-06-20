@@ -50,8 +50,8 @@ class App extends Component {
         this.setState({[event.target.id]: event.target.value})
     }
 
-    getAlbumById(albumId) {
-        console.log('Inside getAlbumById (albumId): ', albumId)
+    getAlbumById(albumId, arrayIndex) {
+        console.log('Inside getAlbumById (albumId, arrayIndex): ', albumId, arrayIndex)
         // axios.get('https://mymusic-backend.herokuapp.com/collection/albums/' + albumId)
         axios.get('http://localhost:3000/collection/albums/' + albumId)
         .then(response => {
@@ -72,6 +72,7 @@ class App extends Component {
                 yearReleased: album.yearReleased,
                 barcode: album.barcode,
                 id: album._id,
+                arrayIndex: arrayIndex,
                 editing: true
             });
         });
@@ -109,19 +110,33 @@ class App extends Component {
         })
     }
 
-    updateArray(album, array) {
-        console.log('Inside App:updateArray (album): ', album)
-        console.log('Inside App:updateArray (array): ', array)
-        // prevState is a copy of the currentState
-        this.setState( prevState => {
-            prevState.albumArray.push(album)
-            console.log('Inside App:updateArray (prevState): ', prevState)
-            // We are returning an object, thus the return {}
-            return {
-                albumArray: prevState.albumArray,
-                albumCount: prevState.albumArray.length
-            }
-        })
+    updateArray(album, arrayIndex) {
+        console.log('Inside App:updateArray (album): ', album);
+        console.log('Inside App:updateArray (arrayIndex): ', arrayIndex);
+
+        if ( arrayIndex !== -1 ) {
+            this.setState( prevState => {
+                prevState.albumArray[arrayIndex] = album;
+                console.log('Inside App:updateArray (prevState): ', prevState)
+                // We are returning an object, thus the return {}
+                return {
+                    albumArray: prevState.albumArray,
+                    albumCount: prevState.albumArray.length
+                }
+            })
+        }
+        else {
+            // prevState is a copy of the currentState
+            this.setState( prevState => {
+                prevState.albumArray.push(album)
+                console.log('Inside App:updateArray (prevState): ', prevState)
+                // We are returning an object, thus the return {}
+                return {
+                    albumArray: prevState.albumArray,
+                    albumCount: prevState.albumArray.length
+                }
+            })
+        }
     }
 
     showPopup = (status) => {
@@ -131,7 +146,7 @@ class App extends Component {
             this.clearForm()
         }
         this.setState({
-            modalIsOpen: status
+            modalIsOpen: status,
         });
     }
 
@@ -236,6 +251,7 @@ class App extends Component {
                     clearForm = {this.clearForm}
                     albums = {this.state.albumArray}
                     updateArray = {this.updateArray}
+                    arrayIndex = {this.state.arrayIndex}
                 />
             </div>
         );

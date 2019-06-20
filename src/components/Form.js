@@ -26,7 +26,7 @@ class Form extends Component {
         .then( response => {
             console.log('updateAlbum:ResponseData: ', response.data);
             console.log('updateAlbum:ResponseStatus: ', response.status);
-            this.props.updateArray(response.data)
+            this.props.updateArray(response.data, this.props.arrayIndex)
         })
         .catch( response => {
             console.log('catch response.message: ', response.message);
@@ -36,6 +36,7 @@ class Form extends Component {
     handleSubmit = (event) => {
         console.log('Inside Form:handleSubmit (event): ', event)
         event.preventDefault()
+        console.log('Inside Form:handleSubmit (props): ', this.props)
 
         if (this.props.editing) {
             this.updateAlbum(this.props)

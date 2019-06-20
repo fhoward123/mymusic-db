@@ -32,6 +32,7 @@ class AlbumList extends Component {
                     setNoEdit = {this.props.setNoEdit}
                     clearForm = {this.props.clearForm}
                     updateArray = {this.props.updateArray}
+                    arrayIndex = {this.props.arrayIndex}
                 />
                 <h2 className="mainTitle">The Collection</h2>
                 <li className="no-bullet bold cursor bot-bord" onClick={() => {this.props.getAlbums()}}>
@@ -44,9 +45,8 @@ class AlbumList extends Component {
                         console.log('album: ', album);
                         console.log('index: ', index);
                         return(
-                            <div className="left">
+                            <div className="left" key={index}>
                                 <Albums
-                                   key={index}
                                    album={album}
                                    arrayIndex={index}
                                    deleteAlbum = {this.props.deleteAlbum}
