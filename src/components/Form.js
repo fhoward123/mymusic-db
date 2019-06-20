@@ -51,7 +51,7 @@ class Form extends Component {
 
         return(
             <div className="container">
-                <p>
+                <p className="no-top">
                     <button
                         className="add-button"
                         onClick={() => {
