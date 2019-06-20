@@ -14,17 +14,17 @@ class Albums extends Component {
             <div className="albums">
                 <ul className='no-bullet'>
                    <img className="thumb" src={this.props.album.imageURL} title={this.props.album.title} alt={this.props.album.title}></img>
-                   <li><span className="bold">Title: </span>{this.props.album.title ? this.props.album.title : "-"}</li>
-                   <li><span className="bold">Artist: </span>{this.props.album.artist ? this.props.album.artist : "-"}</li>
-                   <li><span className="bold">Tracks: </span>{this.props.album.trackCnt ? this.props.album.trackCnt : "-"} </li>
-                   <li><span className="bold">Run time: </span>{this.props.album.runtime ? this.props.album.runtime : "-"}</li>
-                   <li><span className="bold">Released: </span>{this.props.album.yearReleased ? this.props.album.yearReleased : "-"}</li>
-                   <li><span className="bold">Genre: </span>{this.props.album.genre ? this.props.album.genre : "-"}</li>
-                   <li><span className="bold">Label: </span>{this.props.album.label ? this.props.album.label : "-"}</li>
-                   <li><span className="bold">Media: </span>{this.props.album.media ? this.props.album.media : "-"}</li>
-                   <li><span className="bold">Mfg Year: </span>{this.props.album.yearMFG ? this.props.album.yearMFG : "-"}</li>
-                   <li><span className="bold">Origin: </span>{this.props.album.countryMFG ? this.props.album.countryMFG : "-"}</li>
-                   <li><span className="bold">barcode: </span>{this.props.album.barcode ? this.props.album.barcode : "-"}</li>
+                   <li><span className="bold">Title: </span><span className="values"><b>{this.props.album.title ? this.props.album.title : "-"}</b></span></li>
+                   <li><span className="bold">Artist: </span><span className="values"><b>{this.props.album.artist ? this.props.album.artist : "-"}</b></span></li>
+                   <li><span className="bold">Tracks: </span><span className="values"><b>{this.props.album.trackCnt ? this.props.album.trackCnt : "-"} </b></span></li>
+                   <li><span className="bold">Run time: </span><span className="values"><b>{this.props.album.runtime ? this.props.album.runtime : "-"}</b></span></li>
+                   <li><span className="bold">Released: </span><span className="values"><b>{this.props.album.yearReleased ? this.props.album.yearReleased : "-"}</b></span></li>
+                   <li><span className="bold">Genre: </span><span className="values"><b>{this.props.album.genre ? this.props.album.genre : "-"}</b></span></li>
+                   <li><span className="bold">Label: </span><span className="values"><b>{this.props.album.label ? this.props.album.label : "-"}</b></span></li>
+                   <li><span className="bold">Media: </span><span className="values"><b>{this.props.album.media ? this.props.album.media : "-"}</b></span></li>
+                   <li><span className="bold">Mfg Year: </span><span className="values"><b>{this.props.album.yearMFG ? this.props.album.yearMFG : "-"}</b></span></li>
+                   <li><span className="bold">Origin: </span><span className="values"><b>{this.props.album.countryMFG ? this.props.album.countryMFG : "-"}</b></span></li>
+                   <li><span className="bold">barcode: </span><span className="values"><b>{this.props.album.barcode ? this.props.album.barcode : "-"}</b></span></li>
                </ul>
                <div>
                    <br/>

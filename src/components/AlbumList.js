@@ -35,7 +35,7 @@ class AlbumList extends Component {
                     arrayIndex = {this.props.arrayIndex}
                 />
                 <h2 className="mainTitle">The Collection</h2>
-                <li className="no-bullet bold cursor bot-bord" onClick={() => {this.props.getAlbums()}}>
+                <li className="no-bullet bold cursor bot-bord viewer" onClick={() => {this.props.getAlbums()}}>
                     View Albums in Collection ({this.props.albumCnt})
                 </li>
                 <div className="album-container">

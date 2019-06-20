@@ -110,6 +110,12 @@ body > div.fade.modal.show > div {
     /* background-color: yellow; */
     width: 310px;
 }
+.viewer {
+    color: #c4037a;
+}
+.values {
+    color: #a80067;
+}
 .bold {
     font-weight: 800;
 }
@@ -175,6 +181,7 @@ input[type="text"]:focus {
 .thumb {
     height: 220px;
     width: 220px;
+    margin-bottom: 0.5em;
 }
 .center {
     text-align: center;
