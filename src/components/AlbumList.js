@@ -2,8 +2,10 @@
 import React, { Component } from 'react';
 import Albums from './Albums';
 import Form from './Form';
+import SortSelect from './SortSelect';
 
 class AlbumList extends Component {
+
     render() {
         console.log('Inside AlbumList render (this.props): ', this.props);
         return(
@@ -34,10 +36,15 @@ class AlbumList extends Component {
                     updateArray = {this.props.updateArray}
                     arrayIndex = {this.props.arrayIndex}
                 />
+                <SortSelect
+                    handleChange = {this.props.handleChange}
+                />
+
                 <h2 className="mainTitle">The Collection</h2>
                 <li className="no-bullet bold cursor bot-bord viewer" onClick={() => {this.props.getAlbums()}}>
                     Albums in Collection ({this.props.albumCnt})
                 </li>
+
                 <div className="album-container">
                 {this.props.albums
                     ?

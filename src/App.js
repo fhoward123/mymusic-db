@@ -26,6 +26,7 @@ class App extends Component {
             barcode: '',
             songs: [],
             albumArray: [],
+            sortOption: 'title'
         }
         this.getAlbums = this.getAlbums.bind(this);
         this.deleteAlbum = this.deleteAlbum.bind(this);
@@ -47,6 +48,7 @@ class App extends Component {
     }
 
     handleChange = (event) => {
+        console.log('Inside handleChange (value, id): ', event.target.value, event.target.id)
         this.setState({[event.target.id]: event.target.value})
     }
 
@@ -192,7 +194,7 @@ class App extends Component {
     };
 
     buildAlbumArray(albums, key) {
-        console.log('Inside buildAlbumArray');
+        console.log('Inside buildAlbumArray (key): ', key);
         const albumArray = [];
         albums.forEach((album) => {
             albumArray.push(album);
@@ -215,7 +217,7 @@ class App extends Component {
             console.log('ResponseData: ', response.data);
             console.log('ResponseStatus: ', response.status);
             this.setState({ albumArray: response.data });
-            this.buildAlbumArray(response.data, 'title');
+            this.buildAlbumArray(response.data, this.state.sortOption);
         })
         .catch( response => {
             console.log('catch response.message: ', response.message);
@@ -282,6 +284,7 @@ class App extends Component {
                     albums = {this.state.albumArray}
                     updateArray = {this.updateArray}
                     arrayIndex = {this.state.arrayIndex}
+                    sortOption = {this.state.sortOption}
                 />
             </div>
         );
