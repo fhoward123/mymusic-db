@@ -1,15 +1,22 @@
 import React, { Component } from 'react'
 
-class SortSelect extends Component {
+class Header extends Component {
 
     render() {
         return (
-            <div>
+            <div className="custom-select">
+                    <button
+                        className="add-button"
+                        onClick={() => {
+                            this.props.showPopup(true)
+                        }}>
+                        Add Album
+                    </button>
                 <select id="sortOption"
                     value={this.selectValue}
                     onChange={this.props.handleChange}
                 >
-                    <option value="" selected disabled hidden>Choose Sort Option</option>
+                    <option value="" selected disabled hidden>Sort Option</option>
                     <option value="title">Title</option>
                     <option value="artist">Artist</option>
                     <option value="genre">Genre</option>
@@ -20,4 +27,4 @@ class SortSelect extends Component {
     }
 }
 
-export default SortSelect
+export default Header

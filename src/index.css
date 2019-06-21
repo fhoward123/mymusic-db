@@ -39,6 +39,7 @@ body {
     text-align: center;
     font-family: 'Shadows Into Light', cursive;
     font-size: 46px;
+    height: 60px;
     margin: auto;
     margin-top: 0;
     margin-bottom: 0;
@@ -97,9 +98,6 @@ span.bold {
     width: 80px;
     float: left;
 }
-/* span.current.bold {
-    width: auto;
-} */
 ul > li {
     font-family: 'Handlee', cursive;
 }
@@ -116,13 +114,14 @@ input[type="text"]:focus {
 }
 .add-button {
     width: 25%;
-    padding: 0.5em;
+    padding: 0.1em;
     box-sizing: border-box;
-    background: lightgreen;
+    background: #e8c7e3;
     border: 1px solid #888;
     border-radius: 0.5em;
     color: black;
-    font-size: 0.8em;
+    font-size: 0.9em;
+    font-family: "Nunito"
 }
 .add-button:hover {
     cursor: pointer;
@@ -211,4 +210,23 @@ input[type="text"]:focus {
 .current {
     color: blue;
     text-transform: uppercase;
+}
+.custom-select {
+    display: flex;
+    height: 1.5em;
+    justify-content: space-around;
+}
+select {
+  background-color: #e8c7e3;
+  font-family: "Nunito";
+  font-size: 15px;
+  width: 135px;
+}
+select:hover {
+    text-transform: uppercase;
+    cursor: pointer
+}
+option {
+    font-size:16px;
+    color: black;
 }

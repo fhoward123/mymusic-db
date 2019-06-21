@@ -51,16 +51,7 @@ class Form extends Component {
 
         return(
             <div className="container">
-                <p className="no-top">
-                    <button
-                        className="add-button"
-                        onClick={() => {
-                            this.props.showPopup(true)
-                            this.props.clearForm()
-                        }}>
-                        Add Album
-                    </button>
-                </p>
+                
                 <Modal
                     show={this.props.modalIsOpen}
                     onHide={this.props.showPopup}

@@ -49,7 +49,10 @@ class App extends Component {
 
     handleChange = (event) => {
         console.log('Inside handleChange (value, id): ', event.target.value, event.target.id)
-        this.setState({[event.target.id]: event.target.value})
+        this.setState({[event.target.id]: event.target.value}, () => {
+            console.log('sortOption, state: ', this.state.sortOption, this.state)
+            this.buildAlbumArray(this.state.albumArray, this.state.sortOption);
+        })
     }
 
     getAlbumById(albumId, arrayIndex) {
@@ -116,14 +119,16 @@ class App extends Component {
         console.log('Inside App:updateArray (album): ', album);
         console.log('Inside App:updateArray (arrayIndex): ', arrayIndex);
 
-        if ( arrayIndex !== -1 ) {
+        if ( typeof arrayIndex !== 'undefined' ) {
             this.setState( prevState => {
                 prevState.albumArray[arrayIndex] = album;
-                console.log('Inside App:updateArray (prevState): ', prevState)
+                console.log('Inside App:updateArray IF (prevState): ', prevState)
+                const sortedAlbumArray = prevState.albumArray.sort(this.sortAlbums(prevState.sortOption))
+                console.log('Inside App:updateArray IF (sortedAlbumArray): ', sortedAlbumArray)
                 // We are returning an object, thus the return {}
                 return {
-                    albumArray: prevState.albumArray,
-                    albumCount: prevState.albumArray.length
+                    albumArray: sortedAlbumArray,
+                    albumCount: sortedAlbumArray.length
                 }
             })
         }
@@ -131,11 +136,13 @@ class App extends Component {
             // prevState is a copy of the currentState
             this.setState( prevState => {
                 prevState.albumArray.push(album)
-                console.log('Inside App:updateArray (prevState): ', prevState)
+                console.log('Inside App:updateArray ELSE (prevState): ', prevState)
+                const sortedAlbumArray = prevState.albumArray.sort(this.sortAlbums(prevState.sortOption))
+                console.log('Inside App:updateArray IF (sortedAlbumArray): ', sortedAlbumArray)
                 // We are returning an object, thus the return {}
                 return {
-                    albumArray: prevState.albumArray,
-                    albumCount: prevState.albumArray.length
+                    albumArray: sortedAlbumArray,
+                    albumCount: sortedAlbumArray.length
                 }
             })
         }

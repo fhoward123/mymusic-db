@@ -2,9 +2,13 @@
 import React, { Component } from 'react';
 import Albums from './Albums';
 import Form from './Form';
-import SortSelect from './SortSelect';
+import Header from './Header';
 
 class AlbumList extends Component {
+
+    componentDidMount() {
+        this.props.getAlbums()
+    }
 
     render() {
         console.log('Inside AlbumList render (this.props): ', this.props);
@@ -36,8 +40,9 @@ class AlbumList extends Component {
                     updateArray = {this.props.updateArray}
                     arrayIndex = {this.props.arrayIndex}
                 />
-                <SortSelect
+                <Header
                     handleChange = {this.props.handleChange}
+                    showPopup = {this.props.showPopup}
                 />
 
                 <h2 className="mainTitle">The Collection</h2>
