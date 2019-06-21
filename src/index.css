@@ -21,6 +21,11 @@ body {
 /* ==========================
        CONTAINERS
 ========================== */
+/* .album-container {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    height:80%;
+} */
 .container {
     width: 25em;
     margin: 0 auto;
@@ -181,7 +186,8 @@ input[type="text"]:focus {
 .album-list {
     height: 660px;
     width: 440px;
-    overflow: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     padding: 10px;
     box-sizing: border-box;
 }

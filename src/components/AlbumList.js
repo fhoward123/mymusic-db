@@ -52,30 +52,29 @@ class AlbumList extends Component {
                 </li>
 
                 <div className="album-container">
-                {this.props.albums
-                    ?
-                    this.props.albums.map((album, index) => {
-                        console.log('album: ', album);
-                        console.log('index: ', index);
-                        return(
-                            <div className="left" key={index}>
-                                <Albums
-                                   album={album}
-                                   arrayIndex={index}
-                                   deleteAlbum = {this.props.deleteAlbum}
-                                   updateAlbum = {this.props.updateAlbum}
-                                   showPopup = {this.props.showPopup}
-                                   getAlbumById = {this.props.getAlbumById}
-                                   mainApp = {this.container}
-                                   endApp = {this.albumsEnd}
-                                />
-                            </div>
-                        );
-                    })
-                    :  ''
-                }
-                </div>
-                <div ref={(element) => { this.albumsEnd = element; }}>
+                    {this.props.albums
+                        ?
+                        this.props.albums.map((album, index) => {
+                            console.log('album: ', album);
+                            console.log('index: ', index);
+                            return(
+                                <div className="left" key={index}>
+                                    <Albums
+                                       album={album}
+                                       arrayIndex={index}
+                                       deleteAlbum = {this.props.deleteAlbum}
+                                       updateAlbum = {this.props.updateAlbum}
+                                       showPopup = {this.props.showPopup}
+                                       getAlbumById = {this.props.getAlbumById}
+                                       mainApp = {this.container}
+                                       endApp = {this.albumsEnd}
+                                    />
+                                </div>
+                            );
+                        })
+                        :  ''
+                    }
+                    <div id="end" ref={(element) => { this.albumsEnd = element; }}></div>
                 </div>
             </div>
         )

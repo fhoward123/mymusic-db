@@ -5,13 +5,13 @@ class Header extends Component {
     render() {
         return (
             <div className="custom-select">
-                    <button
-                        className="add-button"
-                        onClick={() => {
-                            this.props.showPopup(true)
-                        }}>
-                        Add Album
-                    </button>
+                <button
+                    className="add-button"
+                    onClick={() => {
+                        this.props.showPopup(true)
+                    }}>
+                    Add Album
+                </button>
                 <select id="sortOption"
                     value={this.selectValue}
                     onChange={this.props.handleChange}
