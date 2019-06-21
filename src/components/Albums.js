@@ -38,28 +38,28 @@ class Albums extends Component {
                    <li><span className="bold">Barcode: </span><span className="values"><b>{this.props.album.barcode ? this.props.album.barcode : "-"}</b></span></li>
                </ul>
                <div>
-                   <br/>
+                   <br/><br/>
                    <div>
                        <i
                           className="cursor edit far fa-edit"
                           onClick={ () => { this.setupAlbumEdit(this.props.album._id, this.props.arrayIndex) }}
                        ></i>
                    </div>
-                   <br/>
+                   <br/><br/>
                    <div>
                        <i
                           className="cursor delete far fa-trash-alt"
                           onClick={ () => { this.props.deleteAlbum(this.props.album._id, this.props.arrayIndex) }}
                        ></i>
                    </div>
-                   <br/>
+                   <br/><br/>
                    <div>
                        <i
                            class="cursor green fas fa-arrow-up"
                            onClick={ () => { this.scrollToTop() }}
                        ></i>
                    </div>
-                   <br/>
+                   <br/><br/>
                    <div>
                        <i
                            class="cursor green fas fa-arrow-down"
