@@ -120,16 +120,16 @@ class Form extends Component {
                            placeholder="type of media"
                         />
                         <input type='text'
-                           id='yearMFG'
-                           value={this.props.yearMFG}
-                           onChange={this.props.handleChange}
-                           placeholder="year manufactured"
-                        />
-                        <input type='text'
                            id='countryMFG'
                            value={this.props.countryMFG}
                            onChange={this.props.handleChange}
                            placeholder="country of origin"
+                        />
+                        <input type='text'
+                           id='yearMFG'
+                           value={this.props.yearMFG}
+                           onChange={this.props.handleChange}
+                           placeholder="notes"
                         />
                         <input type='text'
                            id='barcode'
