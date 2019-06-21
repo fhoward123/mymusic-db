@@ -14,6 +14,12 @@ class Albums extends Component {
         this.props.mainApp.scrollTop = 0;
     }
 
+    scrollToEnd() {
+        console.log('Inside scrollToTop (this.props.mainApp): ', this.props.endApp)
+        // this.props.mainApp.scrollTo(0,0)
+        this.props.endApp.scrollIntoView();
+    }
+
     render() {
         console.log('Inside Albums:render: (this.props)', this.props)
         return(
@@ -52,6 +58,13 @@ class Albums extends Component {
                        <i
                            class="cursor green fas fa-arrow-up"
                            onClick={ () => { this.scrollToTop() }}
+                       ></i>
+                   </div>
+                   <br/>
+                   <div>
+                       <i
+                           class="cursor green fas fa-arrow-down"
+                           onClick={ () => { this.scrollToEnd() }}
                        ></i>
                    </div>
                </div>

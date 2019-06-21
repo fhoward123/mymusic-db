@@ -67,12 +67,15 @@ class AlbumList extends Component {
                                    showPopup = {this.props.showPopup}
                                    getAlbumById = {this.props.getAlbumById}
                                    mainApp = {this.container}
+                                   endApp = {this.albumsEnd}
                                 />
                             </div>
                         );
                     })
                     :  ''
                 }
+                </div>
+                <div ref={(element) => { this.albumsEnd = element; }}>
                 </div>
             </div>
         )
