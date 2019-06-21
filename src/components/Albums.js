@@ -8,6 +8,12 @@ class Albums extends Component {
         this.props.showPopup(true)
     }
 
+    scrollToTop() {
+        console.log('Inside scrollToTop (this.props.mainApp): ', this.props.mainApp)
+        // this.props.mainApp.scrollTo(0,0)
+        this.props.mainApp.scrollTop = 0;
+    }
+
     render() {
         console.log('Inside Albums:render: (this.props)', this.props)
         return(
@@ -39,6 +45,13 @@ class Albums extends Component {
                        <i
                           className="cursor delete far fa-trash-alt"
                           onClick={ () => { this.props.deleteAlbum(this.props.album._id, this.props.arrayIndex) }}
+                       ></i>
+                   </div>
+                   <br/>
+                   <div>
+                       <i
+                           class="cursor green fas fa-arrow-up"
+                           onClick={ () => { this.scrollToTop() }}
                        ></i>
                    </div>
                </div>

@@ -13,8 +13,8 @@ class Form extends Component {
 
     updateAlbum(album) {
         console.log('Inside updateAlbum (album): ', album)
-        axios.put('https://mymusic-backend.herokuapp.com/collection/albums/' + album.albumID, album, {
-        // axios.put('http://localhost:3000/collection/albums/' + album.albumID, album, {
+        // axios.put('https://mymusic-backend.herokuapp.com/collection/albums/' + album.albumID, album, {
+        axios.put('http://localhost:3000/collection/albums/' + album.albumID, album, {
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'

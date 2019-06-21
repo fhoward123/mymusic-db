@@ -13,7 +13,7 @@ class AlbumList extends Component {
     render() {
         console.log('Inside AlbumList render (this.props): ', this.props);
         return(
-            <div className="container  album-list">
+            <div id="main-app" className="container  album-list" ref={ element => this.container = element}>
                 <Form
                     showPopup = {this.props.showPopup}
                     modalIsOpen = {this.props.modalIsOpen}
@@ -66,6 +66,7 @@ class AlbumList extends Component {
                                    updateAlbum = {this.props.updateAlbum}
                                    showPopup = {this.props.showPopup}
                                    getAlbumById = {this.props.getAlbumById}
+                                   mainApp = {this.container}
                                 />
                             </div>
                         );

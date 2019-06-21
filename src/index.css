@@ -230,3 +230,6 @@ option {
     font-size:16px;
     color: black;
 }
+.green:hover {
+    color: green;
+}
