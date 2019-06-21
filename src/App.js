@@ -273,7 +273,7 @@ class App extends Component {
 
     render() {
         return(
-            <div className="main-container">
+            <div className="">
                 <AlbumList
                     albumCnt = {this.state.albumCount}
                     getAlbums = {this.getAlbums}
