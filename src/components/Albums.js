@@ -16,7 +16,6 @@ class Albums extends Component {
 
     scrollToEnd() {
         console.log('Inside scrollToTop (this.props.mainApp): ', this.props.endApp)
-        // this.props.mainApp.scrollTo(0,0)
         this.props.endApp.scrollIntoView();
     }
 
