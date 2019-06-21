@@ -126,10 +126,10 @@ input[type="text"]:focus {
 .add-button:hover {
     cursor: pointer;
     text-transform: uppercase;
-    border: 1px solid purple;
+    border: 1px solid darkgrey;
 }
 .add-button:active {
-    border: 1px dashed grey;
+    border: 1px solid grey;
 }
 .submit-button {
     width: 25%;
@@ -144,7 +144,7 @@ input[type="text"]:focus {
 .submit-button:hover {
     cursor: pointer;
     text-transform: uppercase;
-    border: 1px solid purple;
+    border: 1px solid lightblue;
 }
 .submit-button:active {
     border: 1px dashed grey;
@@ -162,7 +162,7 @@ input[type="text"]:focus {
 .cancel-button:hover {
     cursor: pointer;
     text-transform: uppercase;
-    border: 1px solid purple;
+    border: 1px solid pink;
 }
 .cancel-button:active {
     border: 1px dashed grey;

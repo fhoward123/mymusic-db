@@ -43,7 +43,6 @@ class Form extends Component {
         }
         this.props.showPopup(false)
         this.props.setNoEdit()
-        this.props.clearForm()
     }
 
     render() {
@@ -51,20 +50,21 @@ class Form extends Component {
 
         return(
             <div className="container">
-                
                 <Modal
                     show={this.props.modalIsOpen}
                     onHide={this.props.showPopup}
                     dialogClassName="modal"
                     size="sm">
                     <p className="center purple">Fill in the fields and click 'Submit'</p>
-                    <form onSubmit={this.handleSubmit} autocomplete="off">
-                        <input type='text'
-                           id='submitter'
-                           value={this.props.submitter}
-                           onChange={this.props.handleChange}
-                           placeholder="submitter"
-                        />
+                    <form onSubmit={this.handleSubmit} autoComplete="off">
+                        {
+                     // <input type='text'
+                        //    id='submitter'
+                        //    value={this.props.submitter}
+                        //    onChange={this.props.handleChange}
+                        //    placeholder="submitter"
+                     // />
+                        }
                         <input type='text'
                            id='title'
                            value={this.props.title}
@@ -84,6 +84,24 @@ class Form extends Component {
                            placeholder="image URL"
                         />
                         <input type='text'
+                           id='trackCnt'
+                           value={this.props.trackCnt}
+                           onChange={this.props.handleChange}
+                           placeholder="number of tracks"
+                        />
+                        <input type='text'
+                           id='runtime'
+                           value={this.props.runtime}
+                           onChange={this.props.handleChange}
+                           placeholder="runtime"
+                        />
+                        <input type='text'
+                           id='yearReleased'
+                           value={this.props.yearReleased}
+                           onChange={this.props.handleChange}
+                           placeholder="year released"
+                        />
+                        <input type='text'
                            id='genre'
                            value={this.props.genre}
                            onChange={this.props.handleChange}
@@ -96,16 +114,16 @@ class Form extends Component {
                            placeholder="label"
                         />
                         <input type='text'
-                           id='runtime'
-                           value={this.props.runtime}
-                           onChange={this.props.handleChange}
-                           placeholder="runtime"
-                        />
-                        <input type='text'
                            id='media'
                            value={this.props.media}
                            onChange={this.props.handleChange}
                            placeholder="type of media"
+                        />
+                        <input type='text'
+                           id='yearMFG'
+                           value={this.props.yearMFG}
+                           onChange={this.props.handleChange}
+                           placeholder="year manufactured"
                         />
                         <input type='text'
                            id='countryMFG'
@@ -118,24 +136,6 @@ class Form extends Component {
                            value={this.props.barcode}
                            onChange={this.props.handleChange}
                            placeholder="barcode"
-                        />
-                        <input type='text'
-                           id='trackCnt'
-                           value={this.props.trackCnt}
-                           onChange={this.props.handleChange}
-                           placeholder="number of tracks"
-                        />
-                        <input type='text'
-                           id='yearReleased'
-                           value={this.props.yearReleased}
-                           onChange={this.props.handleChange}
-                           placeholder="year released"
-                        />
-                        <input type='text'
-                           id='yearMFG'
-                           value={this.props.yearMFG}
-                           onChange={this.props.handleChange}
-                           placeholder="year manufactured"
                         />
                         <div className="btn-wrapper">
                             <button type="submit"

@@ -40,6 +40,7 @@ class AlbumList extends Component {
                     updateArray = {this.props.updateArray}
                     arrayIndex = {this.props.arrayIndex}
                 />
+
                 <Header
                     handleChange = {this.props.handleChange}
                     showPopup = {this.props.showPopup}
