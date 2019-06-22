@@ -1,68 +1,47 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MERN Music DB App
 
-## Available Scripts
+*MyMusic-DB*
+- A single-page web-app created by Flint Howard using the MERN stack to implement the MVC architecture with full CRUD functionality and deployed to Heroku.
 
-In the project directory, you can run:
+## Technologies Used
+- Javascript
+- MongooseJS
+- MongoDB
+- ExpressJS
+- ReactJS
+- NodeJS
+- HTML
+- CSS
+- Axios
+- AJAX
+- React-Bootstrap
 
-### `npm start`
+Go to [MyMusic-DB](https://mymusic-db.herokuapp.com/).
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Approach
+- I created an intuitive user-interface that functions equally well on a mobile device as well as on a PC.  The purpose of the app is to manage a music lover's collection of LP/CD/DVD music.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Features
+*Add Album*
+- The top of the page has an "Add Album" button that pops-up a modal that includes the data input form.  The user inputs album information into the form which will then POST the data to the MongoDB when the user clicks the "Submit" button.
 
-### `npm test`
+*Sort Option*
+- The collection of music can be selectively sorted by choosing one of four sort methods ('Title', 'Artist', 'Genre', and 'Release Date') available in the popup list.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*Albums in Collection*
+- This is a clickable item that will refresh the list of albums by making a GET request to the MongoDB.
 
-### `npm run build`
+*Clickable Icons*
+- 'Edit' Icon: Click on to edit the selected album.
+- 'Delete' Icon: Click on to remove the selected album from the DB.
+- 'Up Arrow' Icon: Click on to return to top of page.
+- 'Down Arrow' Icon: Click on to jump to bottom of page.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*Styling*
+- React-Bootstrap's for modal functionality.  This was used because of the built-in ability to autofocus and return the the previous view upon closing of the modal.  The rest of the styling is all done in CSS.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Future Update
+- Add sort on type of media (LP/CD/DVD)
+- Add input of songs into DB
+- Add icon to click on to display songs in modal.
+- Secure login to support multiple users
