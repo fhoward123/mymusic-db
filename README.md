@@ -42,6 +42,7 @@ Go to [MyMusic-DB](https://mymusic-db.herokuapp.com/).
 
 ## Future Update
 - Add sort on type of media (LP/CD/DVD)
+- Add search feature
 - Add input of songs into DB
 - Add icon to click on to display songs in modal.
 - Secure login to support multiple users
