@@ -1,4 +1,4 @@
-# MERN Music DB App
+# MERN Music DB App *Frontend* Server
 
 *MyMusic-DB*
 - A single-page web-app created by Flint Howard using the MERN stack to implement the MVC architecture with full CRUD functionality and deployed to Heroku.
