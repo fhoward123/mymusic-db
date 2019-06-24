@@ -233,7 +233,7 @@ class App extends Component {
 
     deleteAlbum(id, arrayIndex) {
         console.log('Inside deleteAlbum');
-        axios.delete('https://mymusic-backend.herokuapp.com/collection/albums' + id)
+        axios.delete('https://mymusic-backend.herokuapp.com/collection/albums/' + id)
         // axios.delete('http://localhost:3000/collection/albums/' + id)
         .then( response => {
             console.log('ResponseData: ', response.data);
