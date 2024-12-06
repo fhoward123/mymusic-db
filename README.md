@@ -38,7 +38,7 @@ Go to [MyMusic-DB](https://mymusic-db.herokuapp.com/).
 - 'Down Arrow' Icon: Click on to jump to bottom of page.
 
 *Styling*
-- React-Bootstrap's for modal functionality.  This was used because of the built-in ability to autofocus and return the the previous view upon closing of the modal.  The rest of the styling is all done in CSS.
+- React-Bootstrap for modal functionality.  This was used because of the built-in ability to autofocus and return to the previous view upon closing the modal.  The rest of the styling is all done in CSS.
 
 ## Future Update
 - Add sort on type of media (LP/CD/DVD)
